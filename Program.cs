@@ -5,119 +5,55 @@ namespace ConsoleApplication
     public class Program
     {
         public static void Main(string[] args)
-        {
-            int total = 4; 
-            int decision = total; 
-            int mint = 1; 
-            int chocolate = 1; 
-            int strawberry = 1;
-            bool same = false;
+        {           
+                int People = 4; 
+                int Mint = 4; 
+                int Chocolate = 4; 
+                int Strawberry = 4; 
+                bool allSold = false; 
+                int iceCreamChoice = 0; 
 
-    
-            string IceCreamDispensor = ""; 
+                do
+                {
 
-            do
-            {
                 Console.WriteLine("Which ice cream would you like?");
-                Console.WriteLine("1.) Mint");
-                Console.WriteLine("2.) Chocolate");
-                Console.WriteLine("3.) Strawberry"); 
+                Console.WriteLine("1.) Mint: " + " In stock " + Mint);
+                Console.WriteLine("2.) Chocolate: " + " In stock: " + Chocolate);
+                Console.WriteLine("3.) Strawberry" + " In stock: " + Strawberry); 
+                Console.WriteLine("4.) Order Complete"); 
 
-                IceCreamDispensor = Console.ReadLine();
-                IceCreamDecision(strawberry, mint, chocolate, IceCreamDispensor, same);
-            }
-            while(IceCreamDecision(total)); 
-        }
+                Console.ReadLine(); 
+                } 
+                while(allSold == false && People > 0);
 
-        
-        private static void IceCreamDecision(int mint, int chocolate, int strawberry, string IceCreamDispensor, bool same)
-       
-        {
-        int total = 4; 
-            switch (IceCreamDispensor)
-            {
-                case "1": Console.WriteLine("You purchased mint ice cream");
-                    if (mint == 1)
-                    {
-                        same = false; 
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                    }
-                    if (mint == 2)
-                    {
-                        same = false;
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                    }
-                    if (mint == 3)
-                    {
-                        same = false;
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                    }
-                    if (mint == 4)
-                    {
-                        same = true;
-                        Console.WriteLine("Purchased Mint Ice Cream at a quantity of " + mint);
-                    }
-                    mint++;
+                if(iceCreamChoice == 1)
+                {
+                    iceCreamChoice = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("You've purchased mint ice cream");
+                    People--; 
+                }
+                else if (iceCreamChoice == 2)
+                {
+                    iceCreamChoice = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("You've purchased Chocolate ice cream");
+                    People--; 
+                }
+                else if (iceCreamChoice == 3)
+                {
+                    iceCreamChoice = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("You've purchased Strawberry ice cream");
+                    People--; 
+                }
 
-                break; 
-
-                case "2": Console.WriteLine("You purchased chocolate ice cream");
-                    if (chocolate == 1)
-                    {
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                        same = false; 
-                    }
-                    if (chocolate == 2)
-                    {
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                        same = false; 
-                    }
-                    if (chocolate == 3)
-                    {
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                        same = false;
-                    }
-                    if (chocolate == 4)
-                    {
-                        Console.WriteLine("Purchased chocolate Ice Cream at a quantity of " + chocolate); 
-                        same = true; 
-                    }
-                    chocolate++;
-                    break; 
-
-                
-                case "3": Console.WriteLine("You purchased strawberry ice cream");
-                    if (strawberry == 1)
-                    {
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                        same = false; 
-                    }
-                    if (strawberry == 2)
-                    {
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                        same = false; 
-                    }
-                    if (strawberry == 3)
-                    {
-                        Console.WriteLine("Not everyone chose Mint, sorry your choice cannot be served");
-                        same = false; 
-                    }
-                    if (strawberry == 4)
-                    {
-                        Console.WriteLine("Purchased strawberry Ice Cream at a quantity of " + strawberry);
-                        same = true;  
-                    }
-                    strawberry++;
-                    break;
-                    default:  
-                    break; 
-                    
-                 }
-                 return total; 
+                 if(allSold == true)
+                {
+                    Console.WriteLine("Your purchase has been complete! Thank you."); 
+                    Console.ReadLine(); 
+                }
+                Console.ReadLine();
             }   
         }
     }
-
             
             
 
